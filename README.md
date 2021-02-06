@@ -4,7 +4,7 @@ Ecommerce website with:
 2.Cart System     
 3.Contact Us Form    
 4.Payment option through paytm   
-5.Django Admin   
+5.Django Admin and much more...   
 
 
 ![screencapture-127-0-0-1-8000-2021-02-06-19_58_16](https://user-images.githubusercontent.com/71818189/107121790-51c4f480-68ba-11eb-8e63-6eec8698caf4.png)

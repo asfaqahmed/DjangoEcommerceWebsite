@@ -1,0 +1,96 @@
+{% extends 'shop/main.html' %} 
+{% load static %} 
+
+
+{% block title %}
+  Bakeology-home 
+{% endblock title %} 
+
+
+{% block content %}
+
+
+<div class="container my-5">
+  <div class="row">
+    {% for cake in page.object_list %}
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+      <img class="thumbnail" src="{{cake.imageURL}}" alt="" />
+      <div class="box-element product">
+        <h6><strong>{{cake.name}}</strong></h6>
+
+        <hr />
+
+        <button
+          class="btn1 btn btn-outline-secondary add-btn update-cart"
+          data-product="{{cake.id}}"
+          data-action="add"
+        >
+          Add to Cart
+        </button>
+        <a class="btn1 btn btn-outline-success viewProduct"  href="{% url 'viewProduct' %}{{cake.id}}">View</a>
+        <h4 style="float: right">
+          <strong>Rs. {{cake.price}}</strong>
+        </h4>
+      </div>
+    </div>
+    {% endfor %}
+
+    <!-- paginator -->
+    <div class="row">
+      <nav aria-label="..." class="my-5">
+        <ul class="pagination justify-content-center" >
+          <li
+            class="page-item {% if not pageHasPrevious %} disabled {% endif %}"
+          >
+            <a
+              class="page-link"
+              href="{% url 'home' %}?page={{previouspageNum}}"
+              tabindex="-1"
+              style="background-color: #fff;"
+              >Previous</a
+            >
+          </li>
+
+          {% for pageNo in pagerange %}
+          <li class="page-item currentpage">
+            <a class="page-link currentpagelink " href="{% url 'home' %}?page={{pageNo}}" 
+              >{{pageNo}}</a
+            >
+          </li>
+          {% endfor %}
+
+          <li class="page-item {% if not pageHasNext %} disabled {% endif %}">
+            <a
+              class="page-link"
+              href="{% url 'home' %}?page={{nextpageNum}}"
+              tabindex="-1"
+              style="background-color: #fff;"
+              >Next</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!-- paginator -->
+
+
+
+  </div>
+</div>
+
+    <script>
+
+      //active page determination 
+      var a={{pageNum}};
+      var pagelinks= document.getElementsByClassName('currentpagelink');
+      for(var x=0; x<pagelinks.length; x++){
+        var temp=pagelinks[x].innerHTML;
+        if(temp==a){
+          document.getElementsByClassName('currentpage')[x].classList.add('active')
+        }
+        
+      }
+
+    </script>
+
+{% endblock content %}

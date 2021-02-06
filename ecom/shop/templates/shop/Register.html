@@ -1,0 +1,74 @@
+{% extends 'shop/main.html' %}
+
+{% block title %}
+  Bakeology-Register 
+{% endblock title %} 
+
+{% load static %}
+
+
+
+{% block style %}
+    <style>
+        body{
+            font-family: 'Rubik', sans-serif;
+            background-image: url({% static 'images/cakebg.jpg' %}) ;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .heading{
+            background-color:rgb(44, 35, 32);
+            border-radius: 10px;
+            color:white;
+        }
+       
+    </style>
+{% endblock style %}
+    
+
+
+
+{% block content %}
+    <div class="container  p-5">
+        <div class="box-element p-5" style="box-shadow:hsl(0, 15%, 6%) 0 0 16px;">
+            <h1 class="text-center heading p-2"> Create a Bakeology Account</h1>
+
+            <form action="/RegisterUser/" class="my-3" method="POST" >
+                {% csrf_token %}
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Full Name" name="fullname">
+                    <label for="floatingInput">Full Name</label>
+                  </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="Email" name="email">
+                    <label for="floatingInput">Email</label>
+                  </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
+                    <label for="floatingInput">Username</label>
+                  </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+                    <label for="floatingPassword">Password</label>
+                  </div>
+                <div class="m-3 text-center">
+                    <button type="submit" class="btn btn-outline-success">Create Account</button>
+                    <button type="reset" class="btn btn-outline-danger">Reset Form</button>
+                  </div>
+    
+            </form>
+            <div class="text-center">
+                <a href="{% url 'LoginUser' %}" style="text-decoration: none ;">Already have an Account, Login here</a>
+
+            </div>
+            
+        </div>
+        
+    </div>
+
+    
+{% endblock content %}
+    

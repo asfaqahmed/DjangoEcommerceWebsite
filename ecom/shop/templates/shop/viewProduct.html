@@ -1,0 +1,89 @@
+{% extends 'shop/main.html' %}
+{% load static %}
+
+
+{% block title %}
+ {{cake.name}}
+{% endblock title %}
+
+{% block style %}
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;400&display=swap');
+
+        body{
+            font-family: 'Rubik', sans-serif;
+            background-image: url({% static 'images/cakebg.jpg' %}) ;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .nav-pills .nav-link.active,.nav-pills .show>.nav-link{
+            color:#fff;
+            background-color:#472c1f
+        }
+        .nav-link{
+            text-decoration: none;
+            color: #472c1f;
+        }
+        .nav-link:hover{
+            color:#7e4d35 ;
+        }
+       
+    </style>
+{% endblock style %}
+
+
+
+{% block content %}
+    <div class="container my-5">
+        <div class="box-element p-5" style="box-shadow:hsl(0, 15%, 6%) 0 0 16px;">
+            
+                
+
+            <div class="row p-2">
+                <h1 class="text-center " style="color:#472c1f ; font-family: 'Londrina Solid', cursive;"> {{cake.name}}</h1>
+            </div>
+            <div class="row align-items-center  ">
+                <div class="col-sm-5 col-12">
+                    
+                    <div class=" text-center" >
+                    <img class="img-thumbnail m-1" src="{{cake.imageURL}}" alt="" style="width:300px;" />
+                      <h6><strong>{{cake.name}}</strong></h6>
+              
+                      
+                        <button class="btn1 btn btn-success add-btn update-cart m-1" data-product="{{cake.id}}" data-action="add">
+                            Add to Cart
+                        </button>
+                        <button type="button" class="btn btn1 btn-danger" onclick="window.location.href='/' " >Back</button>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-7  p-4  box-element m-md-0 mt-5 " >
+                    <div class="d-flex align-items-start">
+                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                          <a class="nav-link active" id="v-pills-description-tab" data-bs-toggle="pill" href="#v-pills-description" role="tab" aria-controls="v-pills-description" aria-selected="true">Description</a>
+                          <a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Price</a>
+                          <a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Weight</a>
+                          <a class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Availability</a>
+                        </div>
+                        <div class="tab-content" id="v-pills-tabContent">
+                          <div class="tab-pane fade show active" id="v-pills-description" role="tabpanel" aria-labelledby="v-pills-description-tab">{{cake.description}}</div>
+                          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">Rs.{{cake.price}}</div>
+                          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">{{cake.weight}} grams</div>
+                          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">{{cake.Availability}}</div>
+                        </div>
+                      </div>
+                </div>
+
+
+                   
+                
+            </div>
+            
+        </div>
+
+    </div>
+{% endblock content %}
+    

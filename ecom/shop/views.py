@@ -326,3 +326,26 @@ def response(request):
         messages.error(request, 'Payment Unsuccessful ')
         # check what happened; details in resp['paytm']
         return HttpResponse("<center><h1>Transaction Failed</h1><center>", status=400)
+
+
+
+
+def aboutUs(request):
+    return render(request, 'shop/about.html',{})
+
+
+def contactUs(request):
+    return render(request, 'shop/contact.html',{})
+
+
+def recieveMessage(request):
+
+    name=request.POST.get('name','')
+    email=request.POST.get('email','')
+    phone=request.POST.get('phone','')
+    message=request.POST.get('message','')
+
+    obj= CustomerMessages(name=name, email=email, phone=phone, message=message)
+    obj.save()
+    messages.success(request, 'Message Sent. We will respond in 2 working days ')
+    return redirect('contact')

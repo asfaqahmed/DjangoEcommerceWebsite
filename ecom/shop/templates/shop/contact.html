@@ -1,0 +1,97 @@
+{% extends 'shop/main.html' %}
+{% load static %}
+
+
+{% block title %}
+ Bakeology- ContactUs
+{% endblock title %}
+
+{% block style %}
+    <style>
+        
+
+        body{
+            font-family: 'Rubik', sans-serif;
+            background-image: url({% static 'images/cakebg.jpg' %}) ;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        
+        .heading{
+            background-color:rgb(44, 35, 32);
+            border-radius: 10px;
+            color:white;
+        }
+        
+       
+
+        
+       
+    </style>
+{% endblock style %}
+
+
+
+{% block content %}
+    <div class="container my-5">
+        <div class="box-element p-2 p-md-5" style="box-shadow:hsl(0, 15%, 6%) 0 0 16px;">
+            <h1 class="text-center heading p-2"> Contact Us</h1>
+            
+            
+            <form action="/sendMessage/" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6 my-2">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Enter Full Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="Full Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">Enter Email Address</label>
+                            <input type="text" class="form-control" name="email" placeholder=" eg. user@bakeologymail.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">Enter Phone Number</label>
+                            <input type="tel" class="form-control" name="phone" pattern="[0-9]{10}" placeholder=" eg.9999999999">
+                        </div>
+                    
+                    </div>
+
+                    <div class="col-md-6 my-2">
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Enter your message</label>
+                            <textarea class="form-control" name="message" rows="5" placeholder="your messsage here"></textarea>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="row ">
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-success mb-3">Send Message</button>
+                        <button type="reset" class="btn btn-warning mb-3">Reset </button>
+                    </div>
+                    <div class="col-12 text-center">
+                        We will respond to your message in 2 working days
+
+                    </div>
+                    
+                </div>
+            </form>
+
+            
+            
+
+            
+            
+        </div>
+
+    </div>
+{% endblock content %}
+    
+

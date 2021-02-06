@@ -62,10 +62,10 @@
                 <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link" href="{% url 'about' %}">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
+                <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
               </li>
               <li class="nav-item ms-lg-3">
                 <a type="button" class="btn btn-outline-success " id="Login" href="{% url 'LoginUser' %}" >
@@ -130,8 +130,8 @@
                             <h6 class="mb-3 mb-lg-4 bold-text "><b>MENU</b></h6>
                             <ul class="list-unstyled">
                                 <li><a style="text-decoration: none; color:#627482" href="{% url 'home' %}">Home</a></li>
-                                <li>About Us</li>
-                                <li>Contact Us</li>
+                                <li><a style="text-decoration: none; color:#627482" href="{% url 'about' %}">About Us</a></li>
+                                <li><a style="text-decoration: none; color:#627482" href="{% url 'contact' %}">Contact Us</a></li>
                                 <li><a style="text-decoration: none; color:#627482" href="{% url 'cart' %}">Cart</a></li>
                             </ul>
                         </div>

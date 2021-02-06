@@ -88,3 +88,15 @@ class ShippingAddress(models.Model):
 	def __str__(self):
 		temp= str(self.customer)+  ' ' +str(self.date_added)
 		return temp
+
+
+
+class CustomerMessages(models.Model):
+	name = models.CharField(max_length=50, null=False)
+	phone = models.CharField(max_length=15, null=False)
+	email=models.CharField(max_length=50, null=False)
+	message = models.CharField( max_length=500, null=False, blank=True)
+
+	def __str__(self):
+		temp= str(self.name)+ '-' + str(self.email)
+		return temp

@@ -11,7 +11,10 @@ urlpatterns = [
     path('LogoutUser/', views.LogoutUser, name='LogoutUser'),
     path('viewProduct/', views.viewProduct, name='viewProduct'),
     path('viewProduct/<int:productid>/', views.viewProduct, name='viewProduct'),
-    path('makePaymentresponse/',views.response)
+    path('makePaymentresponse/',views.response),
+    path('aboutUs/',views.aboutUs, name='about'),
+    path('contactUs/',views.contactUs, name='contact'),
+    path('sendMessage/',views.recieveMessage, ),
     
     
 ]
